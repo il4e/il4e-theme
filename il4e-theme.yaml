@@ -1,7 +1,3 @@
-enabled: true
-dropdown:
-  enabled: true
-
 streams:
  schemes:
    theme:
