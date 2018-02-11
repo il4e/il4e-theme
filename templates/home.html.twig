@@ -25,11 +25,11 @@
                 </header>
                 <div class="card-content">
                     <div class="content">
-                        {{ page.summary(180) }}
+                        {{ p.summary(180) }}
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <span class="card-footer-item">Units
+                    <span class="card-footer-item">Units: 
                         {% if children() %}
                             {{ children.count() }}
                         {% endif %}
