@@ -10,7 +10,7 @@
             </div>
 
             <hr>
-            {% for post in page.find('/modules').children.order('date', 'desc').slice(0, 3) %}
+            {% for page in page.find('/modules').children.order('date', 'desc').slice(0, 3) %}
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
@@ -24,8 +24,8 @@
               </header>
               <div class="card-content">
                 <div class="content">
-                  {% if post.summary %}
-                      {{ post.summary(180) }}
+                  {% if page.summary %}
+                      {{ page.summary(180) }}
                   {% endif %}
                   <br />
                   <time datetime="{{ date() }}">{{ date() }}</time>
