@@ -1,0 +1,75 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="columns">
+        <div class="column is-8 is-offset-2">
+
+            <div class="content">
+                {{ page.content }}
+            </div>
+
+            <hr>
+            {% for post in page.find('/blog').children.order('date', 'desc').slice(0, 3) %}
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  {{ header.title }}
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  {% if post.summary %}
+                      {{ post.summary(180) }}
+                  {% endif %}
+                  <br />
+                  <time datetime="{{ date() }}">{{ date() }}</time>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <span class="card-footer-item">Units
+                    {% if children() %}
+                        {{ children.count() }}
+                    {% endif %}
+                </span>
+                <a href="#" class="card-footer-item">View</a>
+              </footer>
+            </div>
+            {% endfor %}
+
+            <hr />
+
+            {% for post in page.find('/blog').children.order('date', 'desc').slice(0, 3) %}
+
+            <div class="box">
+                <article class="media">
+                    <div class="media-left">
+                        <figure class="image is-96x96">
+                            <img src="{{ post.url }}/{{ post.header.featured_image }}" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                            <strong class="title is-size-5">
+                                <a href="{{ base_url }}{{ post.route }}">
+                                    {{ post.title }}
+                                </a>
+                            </strong>
+                            {% if post.summary %}
+                                {{ post.summary(180) }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}
