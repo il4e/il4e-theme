@@ -10,7 +10,7 @@
             </div>
 
             <hr>
-            {% for page in page.find('/modules').children.order('date', 'desc').slice(0, 3) %}
+            {% for page in page.find('/modules').children %}
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
