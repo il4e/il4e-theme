@@ -1,39 +1,56 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-<div class="container">
-    <div class="content">
-        {{ page.content }}
-    </div>
+<div class="columns">
+    <div class="column is-one-quarter">
 
-    <div class="columns is-multiline">
-        {% for p in page.find('/modules').children %}
-        <div class="column">
-            <div class="card">
-                <header class="card-header">
-                    <p class="card-header-title">
-                        {{ p.title }}
-                    </p>
-                    <a href="#" class="card-header-icon" aria-label="more options">
-                        <span class="icon">
-                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                </header>
-                <div class="card-content">
-                    <div class="content">
-                        {{ p.summary(180) }}
+        <nav class="panel">
+          <p class="panel-heading">
+            Modules
+          </p>
+          {% for p in page.find('/modules').children.order('folder', 'asc') %}
+              <a href="{{ p.url }}" class="panel-block is-active">
+                <span class="panel-icon">
+                  <i class="fas fa-book"></i>
+                </span>
+                {{ p.title }}
+              </a>
+          {% endfor %}
+        </nav>
+    </div>
+    <div class="column is-three-quarters">
+        <div class="container">
+            <div class="content">
+                {{ page.content }}
+            </div>
+
+            <div class="columns is-multiline">
+                {% for p in page.find('/modules').children.order('folder', 'asc') %}
+                <div class="column is-one-quarter">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                {{ p.title }}
+                            </p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                {{ p.summary(180) }}
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <span class="card-footer-item">Units: {{ p.children.count() }}</span>
+                            <a href="{{ p.url }}" class="button card-footer-item">View</a>
+                        </footer>
                     </div>
                 </div>
-                <footer class="card-footer">
-                    <span class="card-footer-item">Units: {{ children.count() }}</span>
-                    <a href="#" class="card-footer-item">View</a>
-                </footer>
+                {% endfor %}
             </div>
-        </div>
-        {% endfor %}
-
-    </div>
 
             {% for post in page.find('/blog').children.order('date', 'desc').slice(0, 3) %}
 
@@ -60,7 +77,7 @@
             </div>
             {% endfor %}
 
-        
+        </div>
     </div>
 </div>
 {% endblock %}
