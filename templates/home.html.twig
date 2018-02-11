@@ -10,35 +10,34 @@
             </div>
 
             <hr>
-            {% for page in page.find('/modules').children %}
+
+            {% for p in page.find('/modules').children %}
             <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  {{ header.title }}
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  {% if page.summary %}
-                      {{ page.summary(180) }}
-                  {% endif %}
-                  <br />
-                  <time datetime="{{ date() }}">{{ date() }}</time>
+                <header class="card-header">
+                    <p class="card-header-title">
+                        {{ p.title }}
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        {{ page.summary(180) }}
+                        <br />
+                        <time datetime="{{ date('d/m/Y H:i') }}">{{ date('d/m/Y H:i') }}</time>
+                    </div>
                 </div>
-              </div>
-              <footer class="card-footer">
-                <span class="card-footer-item">Units
-                    {% if children() %}
-                        {{ children.count() }}
-                    {% endif %}
-                </span>
-                <a href="#" class="card-footer-item">View</a>
-              </footer>
+                <footer class="card-footer">
+                    <span class="card-footer-item">Units
+                        {% if children() %}
+                            {{ children.count() }}
+                        {% endif %}
+                    </span>
+                    <a href="#" class="card-footer-item">View</a>
+                </footer>
             </div>
             {% endfor %}
 
