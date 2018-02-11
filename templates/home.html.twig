@@ -2,16 +2,13 @@
 
 {% block content %}
 <div class="container">
-    <div class="columns">
-        <div class="column is-8 is-offset-2">
+    <div class="content">
+        {{ page.content }}
+    </div>
 
-            <div class="content">
-                {{ page.content }}
-            </div>
-
-            <hr>
-
-            {% for p in page.find('/modules').children %}
+    <div class="columns is-multiline">
+        {% for p in page.find('/modules').children %}
+        <div class="column">
             <div class="card">
                 <header class="card-header">
                     <p class="card-header-title">
@@ -29,17 +26,14 @@
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <span class="card-footer-item">Units: 
-                        {% if children() %}
-                            {{ children.count() }}
-                        {% endif %}
-                    </span>
+                    <span class="card-footer-item">Units: {{ children.count() }}</span>
                     <a href="#" class="card-footer-item">View</a>
                 </footer>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
 
-            <hr />
+    </div>
 
             {% for post in page.find('/blog').children.order('date', 'desc').slice(0, 3) %}
 
@@ -66,7 +60,7 @@
             </div>
             {% endfor %}
 
-        </div>
+        
     </div>
 </div>
 {% endblock %}
