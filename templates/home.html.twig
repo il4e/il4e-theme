@@ -10,7 +10,7 @@
             </div>
 
             <hr>
-            {% for post in page.find('/blog').children.order('date', 'desc').slice(0, 3) %}
+            {% for post in page.find('/modules').children.order('date', 'desc').slice(0, 3) %}
             <div class="card">
               <header class="card-header">
                 <p class="card-header-title">
