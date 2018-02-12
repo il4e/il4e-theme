@@ -16,3 +16,4 @@ Thumbs.db
 
 # Custom
 node_modules/*
+quark/*

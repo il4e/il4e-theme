@@ -1,28 +1,57 @@
 {
-  "name": "haywire-grav",
-  "version": "0.3.4",
-  "homepage": "https://github.com/robbinfellow/haywire-grav#readme",
-  "author": "Robbin Johansson <robbinfellow@gmail.com>",
-  "license": "MIT",
+  "name": "spectre.css",
+  "version": "0.5.0",
+  "homepage": "http://picturepan2.github.io/spectre",
+  "author": "Yan Zhu <picturepan2@hotmail.com>",
+  "description": "Spectre.css: a lightweight, responsive and modern CSS framework.",
+  "main": "docs/dist/spectre.css",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robbinfellow/haywire-grav.git"
+    "url": "https://github.com/picturepan2/spectre.git"
   },
+  "files": [
+    "dist",
+    "docs",
+    "src",
+    "**/*.scss",
+    "gulpfile.js"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "css",
+    "framework",
+    "flexbox",
+    "responsive",
+    "mobile-friendly",
+    "front-end",
+    "sass",
+    "modern"
+  ],
   "bugs": {
-    "url": "https://github.com/robbinfellow/haywire-grav/issues"
-  },
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "url": "https://github.com/picturepan2/spectre/issues"
   },
   "devDependencies": {
-    "babel-polyfill": "^6.26.0",
-    "bulma": "^0.6.0",
-    "cross-env": "^5.1.3",
-    "laravel-mix": "^2.0.0",
-    "vue": "^2.5.13"
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "latest"
+  },
+  "browserslist": [
+    "last 4 Chrome versions",
+    "Edge >= 12",
+    "Firefox ESR",
+    "last 4 Safari versions",
+    "last 4 Opera versions",
+    "Explorer >= 10"
+  ],
+  "dependencies": {
+    "gulp-sourcemaps": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node-sass --watch -r scss/ -o css-compiled/ --output-style compressed",
+    "deploy": "node-sass scss -o css-compiled --output-style compressed"
   }
 }
