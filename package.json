@@ -1,13 +1,13 @@
 {
-  "name": "spectre.css",
-  "version": "0.5.0",
-  "homepage": "http://picturepan2.github.io/spectre",
-  "author": "Yan Zhu <picturepan2@hotmail.com>",
-  "description": "Spectre.css: a lightweight, responsive and modern CSS framework.",
-  "main": "docs/dist/spectre.css",
+  "name": "il4e-theme",
+  "version": "0.0.1",
+  "homepage": "http://github.com/il4e/il4e-theme",
+  "author": "Michael Greene <profmikegreene@gmail.com>",
+  "description": "il4e-theme",
+  "main": "css-compiled/theme.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/picturepan2/spectre.git"
+    "url": "git+https://github.com/il4e/il4e-theme.git"
   },
   "files": [
     "dist",
@@ -28,7 +28,7 @@
     "modern"
   ],
   "bugs": {
-    "url": "https://github.com/picturepan2/spectre/issues"
+    "url": "https://github.com/il4e/il4e-theme/issues"
   },
   "devDependencies": {
     "gulp": "latest",
@@ -51,7 +51,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node-sass --watch -r scss/ -o css-compiled/ --output-style compressed",
-    "deploy": "node-sass scss -o css-compiled --output-style compressed"
+    "watch": "node-sass --watch -r scss/ -o css-compiled/ --output-style compact",
+    "deploy": "node-sass scss/ -o css-compiled/ --output-style compressed",
+    "build": "gulp build"
   }
 }

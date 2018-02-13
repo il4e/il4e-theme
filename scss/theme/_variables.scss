@@ -5,7 +5,7 @@ $vert-padding: 2rem 0 2rem;
 // Header
 $header-height-large: 4rem;
 $header-height-small: 2.3rem;
-$header-color-dark: #222;
+$header-color-dark: $dark-color;
 $header-text-light: $light-color;
 $header-text-dark: darken($dark-color, 15%);
 
@@ -19,7 +19,14 @@ $dropmenu-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 
 // Mobile Menu
 $mobile-color-main: $primary-color;
-$mobile-color-active: #FFF;
-$mobile-color-link: #FFF;
+$mobile-color-active: $light-color;
+$mobile-color-link: $light-color;
 $mobile-button-height: 27px;
 $mobile-button-width: 35px;
+
+// Colors
+$mercury: #E9E6E8;
+$gravel: #4E4249;
+
+$dark-color: $gravel;
+$light-color: $mercury;
